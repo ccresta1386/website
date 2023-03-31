@@ -16,6 +16,18 @@ def image():
 def home():
     return render_template('home.html')
 
+@app.route("/wmt")
+def wmt():
+    return render_template('wmt.html')
+
+@app.route("/lmt")
+def lmt():
+    return render_template('lmt.html')
     
 if __name__ == "__main__":
-    app.run(debug=True)
+    while True:
+        try:
+            app.run(debug=True,host='0.0.0.0')
+        except Exception:
+            pass
+    
