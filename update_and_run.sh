@@ -7,7 +7,7 @@ cd /volume1/Web/website
 git pull
 
 /usr/local/bin/python3 /volume1/Web/website/website.py >> /tmp/site_1.log 2>&1 &
-#pid=$!
+pid=$!
 
 # Get the start time
 START_TIME=$(date +%s)
@@ -27,3 +27,4 @@ while true; do
 
     # Add a sleep interval if necessary
     sleep 5
+done
