@@ -1,5 +1,6 @@
 #!/bin/sh
-
+pip3 install Flask
+pip3 install Flask-Limiter
 # Set the time duration in seconds
 DURATION=295
 
