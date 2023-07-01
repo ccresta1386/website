@@ -4,8 +4,8 @@ from flask_limiter.util import get_remote_address
 import os
 
 app = Flask(__name__, static_folder='static')
-app.config['APPLICATION_ROOT'] = ""
-folder_path = "templates"
+app.config['APPLICATION_ROOT'] = "/volume1/Web/website/"
+folder_path = "/volume1/Web/website/templates"
 # Get the list of files in the folder
 files = os.listdir(folder_path)
 limiter = Limiter(app=app, key_func=get_remote_address)
@@ -13,7 +13,7 @@ limiter = Limiter(app=app, key_func=get_remote_address)
 
 def log_requests_to_file():
     log_data = f"{request.remote_addr} - {request.method} {request.url}"
-    with open('requests.log', 'rb') as f:
+    with open('/volume1/Web/website/requests.log', 'rb') as f:
         try:  # catch OSError in case of a one line file 
             f.seek(-2, os.SEEK_END)
             while f.read(1) != b'\n':
@@ -22,7 +22,7 @@ def log_requests_to_file():
             f.seek(0)
         last_line = f.readline().decode()
         last_logged_ip = last_line.split(" - ")[0]
-    with open('requests.log', 'a') as f:
+    with open('/volume1/Web/website/requests.log', 'a') as f:
         if last_logged_ip != request.remote_addr:
             f.write("\n--------------------------\n")
         f.write(log_data + "\n")
@@ -58,7 +58,7 @@ for filename in files:
 
 @app.route("/")
 def hello():
-    return render_template('notice.html')
+    return render_template('/volume1/Web/website/notice.html')
 
 @app.route('/static/<path:path>')
 def serve_static(path):
