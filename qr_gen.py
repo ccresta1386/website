@@ -1,20 +1,22 @@
 import requests
 from io import BytesIO
+import os
 import qrcode
 from PIL import Image, ImageDraw, ImageDraw2, ImageFont
 
 # Get the fonts 
 # req = requests.get("https://github.com/googlefonts/zen-antique/blob/main/fonts/ttf/ZenAntique-Regular.ttf?raw=true")
 # font = ImageFont.truetype(BytesIO(req.content), 72,)
-font = ImageFont.truetype("Caveat\Caveat-VariableFont_wght.ttf", 64)
+font = ImageFont.truetype("Caveat/Caveat-VariableFont_wght.ttf", 64)
 
-ip = 'http://173.71.158.88:5000'
-f = open('site_list.txt')
+ip = 'http://96.238.84.92:5000'
 
-
-lines = f.readlines()
-for line in lines:
-    line = line.strip()
+files = os.listdir('templates')
+    
+for line in files:
+    line = os.path.splitext(line)[0]
+    if len(line) > 3:
+        continue
     img = qrcode.make(ip + '/' + line)
     im1 = Image.new('RGB',
                  (335, 400),   # A4 at 72dpi
