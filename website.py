@@ -3,6 +3,7 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 import os
 
+
 app = Flask(__name__, static_folder='static')
 app.config['APPLICATION_ROOT'] = "/volume1/Web/website/"
 folder_path = "/volume1/Web/website/templates"
