@@ -3,13 +3,17 @@ from io import BytesIO
 import os
 import qrcode
 from PIL import Image, ImageDraw, ImageDraw2, ImageFont
+import urllib.request
+
+# get my ip addr
+external_ip = urllib.request.urlopen('https://ident.me').read().decode('utf8')
 
 # Get the fonts 
 # req = requests.get("https://github.com/googlefonts/zen-antique/blob/main/fonts/ttf/ZenAntique-Regular.ttf?raw=true")
 # font = ImageFont.truetype(BytesIO(req.content), 72,)
 font = ImageFont.truetype("Caveat/Caveat-VariableFont_wght.ttf", 64)
 
-ip = 'http://96.238.84.92:5000'
+ip = f'http://{external_ip}:5000'
 
 files = os.listdir('templates')
     
