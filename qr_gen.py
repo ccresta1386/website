@@ -21,6 +21,7 @@ for line in files:
     line = os.path.splitext(line)[0]
     if len(line) > 3:
         continue
+    print(ip + '/' + line)
     img = qrcode.make(ip + '/' + line)
     im1 = Image.new('RGB',
                  (335, 400),   # A4 at 72dpi
