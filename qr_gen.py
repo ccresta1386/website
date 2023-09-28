@@ -13,7 +13,7 @@ external_ip = urllib.request.urlopen('https://ident.me').read().decode('utf8')
 # font = ImageFont.truetype(BytesIO(req.content), 72,)
 font = ImageFont.truetype("Caveat/Caveat-VariableFont_wght.ttf", 64)
 
-ip = f'http://{external_ip}:5000'
+static_addr = f'http://advntr.duckdns.org:5000'
 
 files = os.listdir('templates')
     
@@ -21,12 +21,12 @@ for line in files:
     line = os.path.splitext(line)[0]
     if len(line) > 3:
         continue
-    print(ip + '/' + line)
-    img = qrcode.make(ip + '/' + line)
+    print(static_addr + '/' + line)
+    img = qrcode.make(static_addr + '/' + line)
     im1 = Image.new('RGB',
-                 (335, 400),   # A4 at 72dpi
+                 (335+35, 400+25),   # A4 at 72dpi
                  (255, 255, 255))  # White
     im1.paste(img, img.getbbox())
     draw = ImageDraw.Draw(im1)
-    draw.text((50, 295), "Adventure", font=font, align="center", fill='black')
+    draw.text((50+20, 295+35), "Adventure", font=font, align="center", fill='black')
     im1.save("qr_codes/" + line + ".png")
