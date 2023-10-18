@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Luxurious+Script&display=swap" rel="stylesheet">
+    
+  <title>Treasure Hunt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/css" rel="stylesheet" href="static/styles.css" />
+
+</head>
+<body>
+  <div class="container">
+    <h1>Where were you last?</h1>
+
+    <div class="input-wrapper">
+      <input type="text" id="codeInput" placeholder="Enter your answer">
+    </div>
+    <input type="hidden" id="answer" value="NYC">
+    <input type="hidden" id="destination" value="inh_clue56186576512.html">
+    <div class="input-wrapper">
+      <button onclick="checkCode()">Guess</button>
+    </div>
+  </div>
+
+  <script src="static/script.js"></script>
+</body>
+</html>
