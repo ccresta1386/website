@@ -19,7 +19,7 @@ files = os.listdir('templates')
     
 for line in files:
     line = os.path.splitext(line)[0]
-    if len(line) > 3:
+    if len(line) > 4:
         continue
     print(static_addr + '/' + line)
     img = qrcode.make(static_addr + '/' + line)
